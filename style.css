@@ -28,21 +28,22 @@
 }
 
 html[data-theme='dark'] {
-  --bg: #0d0e17;
-  --bg2: #12131f;
-  --bg3: #171927;
-  --surface: #171927;
-  --surface-2: rgba(139, 116, 240, 0.09);
-  --emerald: #2dd4a7;
-  --emerald-dim: #22b18a;
-  --gold: #f0985e;
-  --gold-soft: #f4a978;
-  --azure: #9b83f2;
-  --ink: #f3f1fa;
-  --muted: #a9a8c2;
-  --dim: #6f6e8a;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-2: rgba(255, 255, 255, 0.14);
+  --bg: #060b1a;
+  --bg2: #060b1a;
+  --bg3: #060b1a;
+  --surface: #060b1a;
+  --surface-2: #060b1a;
+  --emerald: #7c6ce0;
+  --emerald-dim: #6a5bc9;
+  --gold: #9d87ec;
+  --gold-soft: #bcaaf7;
+  --azure: #a78bfa;
+  --ink: #eef0fb;
+  --muted: #9ea3c4;
+  --dim: #656b8f;
+  --line: #060b1a;
+  --line-2: #060b1a;
+
 }
 
 html {
