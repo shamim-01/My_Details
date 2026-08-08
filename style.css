@@ -67,7 +67,7 @@ body {
   color: var(--ink);
 }
 
-/* ═══ AURORA / TEXTURE ═══ */
+/* aurora blobs behind everything */
 .grid-bg {
   position: fixed;
   inset: 0;
@@ -138,7 +138,7 @@ body {
   animation: drift3 38s ease-in-out infinite;
 }
 
-/* premium sparkle particles */
+/* floating sparkle dots */
 .sparkle-field {
   position: fixed;
   inset: 0;
@@ -211,7 +211,7 @@ body {
   }
 }
 
-/* SCROLL PROGRESS */
+/* scroll progress bar up top */
 #progress {
   position: fixed;
   top: 0;
@@ -224,7 +224,7 @@ body {
   transition: width 0.08s linear;
 }
 
-/* CURSOR */
+/* custom cursor */
 #cursor {
   width: 6px;
   height: 6px;
@@ -287,7 +287,7 @@ body {
   background: var(--gold-soft);
 }
 
-/* ═══ NAV ═══ */
+/* nav */
 nav {
   position: fixed;
   top: 0;
@@ -599,7 +599,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ═══ HERO ═══ */
+/* hero */
 .hero {
   min-height: 100svh;
   display: grid;
@@ -1010,7 +1010,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   transform: translateY(-3px);
 }
 
-/* Hero Visual */
+/* profile pic + rings */
 .hero-visual {
   flex: 0 0 300px;
   position: relative;
@@ -1275,7 +1275,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   }
 }
 
-/* ═══ MARQUEE ═══ */
+/* tech marquee strip */
 .marquee {
   position: relative;
   z-index: 1;
@@ -1359,7 +1359,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   }
 }
 
-/* ═══ SECTION DIVIDER ═══ */
+/* section divider line */
 .divider {
   position: relative;
   height: 1px;
@@ -1388,7 +1388,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   }
 }
 
-/* ═══ SECTIONS ═══ */
+/* generic section spacing */
 .section {
   position: relative;
   z-index: 1;
@@ -1446,7 +1446,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   animation: shimmer 9s linear infinite;
 }
 
-/* ═══ ABOUT ═══ */
+/* about */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1567,7 +1567,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   position: relative;
 }
 
-/* Terminal */
+/* fake terminal card */
 .terminal {
   background: var(--bg2);
   border: 1px solid var(--line-2);
@@ -1681,7 +1681,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   color: var(--gold-soft);
 }
 
-/* ═══ SKILLS ═══ */
+/* skills */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1917,7 +1917,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   background: rgba(106, 74, 226, 0.14);
 }
 
-/* ═══ EDUCATION ═══ */
+/* education timeline */
 .edu-wrap {
   display: flex;
   flex-direction: column;
@@ -2137,7 +2137,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   line-height: 1.7;
 }
 
-/* ═══ PROJECTS ═══ */
+/* projects */
 .proj-filters {
   display: flex;
   flex-wrap: wrap;
@@ -2430,7 +2430,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   transform: translateY(-2px);
 }
 
-/* ═══ CONTACT ═══ */
+/* contact */
 .contact-wrap {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -2703,7 +2703,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   transform: translateY(-3px);
 }
 
-/* ═══ FOOTER ═══ */
+/* footer */
 footer {
   position: relative;
   z-index: 1;
@@ -2820,7 +2820,7 @@ footer {
   color: var(--gold-soft);
 }
 
-/* ═══ PROJECT QUICK VIEW MODAL ═══ */
+/* project modal */
 .proj-card:hover {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.7) inset,
@@ -2963,7 +2963,7 @@ footer {
   }
 }
 
-/* ═══ REVEAL ═══ */
+/* scroll reveal animation states */
 .reveal {
   opacity: 0;
   filter: blur(6px);
@@ -3024,7 +3024,7 @@ footer {
   transition-delay: 0.4s;
 }
 
-/* ═══ KEYFRAMES ═══ */
+/* keyframes */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -3076,9 +3076,7 @@ footer {
   }
 }
 
-/* ════════════════════════════════════════
-   RESPONSIVE — TABLET (max 960px)
-════════════════════════════════════════ */
+/* tablet */
 @media (max-width: 960px) {
   nav {
     padding: 0 4vw;
@@ -3139,9 +3137,7 @@ footer {
   }
 }
 
-/* ════════════════════════════════════════
-   RESPONSIVE — SMALL TABLET (max 768px)
-════════════════════════════════════════ */
+/* small tablet */
 @media (max-width: 768px) {
   .hero-visual {
     flex: 0 0 190px;
@@ -3176,9 +3172,7 @@ footer {
   }
 }
 
-/* ════════════════════════════════════════
-   RESPONSIVE — MOBILE (max 640px)
-════════════════════════════════════════ */
+/* mobile */
 @media (max-width: 640px) {
   body {
     cursor: auto;
@@ -3338,9 +3332,7 @@ footer {
   }
 }
 
-/* ════════════════════════════════════════
-   RESPONSIVE — EXTRA SMALL (max 420px)
-════════════════════════════════════════ */
+/* extra small phones */
 @media (max-width: 420px) {
   .hero-name {
     font-size: 2.2rem;
@@ -3381,9 +3373,7 @@ footer {
   }
 }
 
-/* ════════════════════════════════════════
-   DARK MODE OVERRIDES
-════════════════════════════════════════ */
+/* dark mode overrides */
 html[data-theme='dark'] nav {
   background: rgba(13, 14, 23, 0.72);
 }
@@ -3458,7 +3448,7 @@ html[data-theme='dark'] .contact-item::after {
     transparent 66%
   );
 }
-/* ═══ GITHUB LIVE STATS (add to style.css) ═══ */
+/* github stats on project cards */
 .proj-gh-stats {
   display: flex;
   align-items: center;
@@ -3520,7 +3510,7 @@ html[data-theme='dark'] .contact-item::after {
     background-position: -200% 0;
   }
 }
-/* ═══ BLOG SECTION (add to style.css) ═══ */
+/* blog cards */
 .blog-filters {
   display: flex;
   flex-wrap: wrap;
@@ -3715,7 +3705,7 @@ html[data-theme='dark'] .contact-item::after {
   gap: 0.65rem;
 }
 
-/* ═══ BLOG READ MODAL (reuses .proj-overlay pattern) ═══ */
+/* blog read modal, reuses the project overlay pattern */
 .blog-modal {
   background: var(--bg);
   border: 1px solid var(--line-2);

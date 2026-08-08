@@ -297,6 +297,14 @@ if (tiltImg && matchMedia('(min-width:641px)').matches) {
 /* CARD TILT — projects + skills */
 document.querySelectorAll('[data-tilt]').forEach(card => {
   if (!matchMedia('(min-width:769px)').matches) return;
+  // The CSS "breathing" keyframe animation on this card also animates
+  // transform, and a CSS animation always wins over an inline style —
+  // even while paused on :hover — so it silently ate the tilt effect.
+  // Fully disabling the animation (not just pausing it) while the
+  // pointer is over the card lets our inline transform actually render.
+  card.addEventListener('mouseenter', () => {
+    card.style.animation = 'none';
+  });
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width - 0.5;
@@ -305,6 +313,7 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   });
   card.addEventListener('mouseleave', () => {
     card.style.transform = '';
+    card.style.animation = '';
   });
 });
 
@@ -482,6 +491,25 @@ if (logoMark) {
 /* HERO PARALLAX ON SCROLL */
 const heroVisual = document.querySelector('.hero-visual');
 if (heroVisual && matchMedia('(min-width:641px)').matches) {
+  // .hero-visual has a one-shot CSS entrance animation
+  // (fadeUp ... forwards). Because of fill-mode "forwards", that
+  // animation keeps holding/overriding the transform property forever
+  // after it finishes — which silently blocked the parallax transform
+  // set below. Clear it once the entrance animation ends so scroll
+  // parallax can actually apply.
+  heroVisual.addEventListener(
+    'animationend',
+    () => {
+      // .hero-visual's base (non-animated) rule is opacity:0 — the
+      // animation was the only thing making it visible. Freeze the
+      // finished state inline BEFORE removing the animation, or the
+      // element snaps back to opacity:0 the moment it's cleared.
+      heroVisual.style.opacity = '1';
+      heroVisual.style.transform = '';
+      heroVisual.style.animation = 'none';
+    },
+    { once: true },
+  );
   window.addEventListener(
     'scroll',
     () => {
