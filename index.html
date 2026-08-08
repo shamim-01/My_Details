@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shamim Alam — Frontend Developer (React) | Aspiring MERN Stack Developer</title>
+  <meta name="description"
+    content="Shamim Alam is a Frontend Developer specializing in React and Tailwind CSS, currently expanding into full-stack development with Node.js, Express and MongoDB. Based in Dhaka, Bangladesh — open to work.">
+  <meta name="keywords"
+    content="Shamim Alam, Frontend Developer, React Developer, MERN Stack Developer, Web Developer Bangladesh, JavaScript Developer">
+  <meta name="author" content="Shamim Alam">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shamim-01.github.io/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shamim-01.github.io/">
+  <meta property="og:title" content="Shamim Alam — Frontend Developer (React) | Aspiring MERN Stack Developer">
+  <meta property="og:description"
+    content="Frontend Developer specializing in React and Tailwind CSS, currently expanding into full-stack development with Node.js, Express and MongoDB.">
+  <meta property="og:image" content="https://shamim-01.github.io/images/og-cover.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://shamim-01.github.io/">
+  <meta name="twitter:title" content="Shamim Alam — Frontend Developer (React) | Aspiring MERN Stack Developer">
+  <meta name="twitter:description"
+    content="Frontend Developer specializing in React and Tailwind CSS, currently expanding into full-stack development with Node.js, Express and MongoDB.">
+  <meta name="twitter:image" content="https://shamim-01.github.io/images/og-cover.jpg">
+
+  <meta name="theme-color" content="#fbf8f4">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,560;9..144,680&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shamim Alam",
+    "jobTitle": "Frontend Developer",
+    "url": "https://shamim-01.github.io/",
+    "email": "mailto:shamimalam4949@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dhaka",
+      "addressCountry": "Bangladesh"
+    },
+    "sameAs": [
+      "https://github.com/shamim-01",
+      "https://www.linkedin.com/in/shamim-alam-620719330/",
+      "https://www.instagram.com/sha_mim_49/",
+      "https://www.facebook.com/shamim.alam.78"
+    ],
+    "knowsAbout": ["React", "JavaScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "HTML5", "CSS3"]
+  }
+  </script>
+</head>
+
+<body>
+  <div id="progress"></div>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <div class="grid-bg"></div>
+  <div class="noise"></div>
+  <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+  <div class="sparkle-field" id="sparkleField"></div>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#home" class="logo" data-cursor="link">
+      <span class="logo-mark">SA</span>
+      <span class="logo-text">Shamim<span class="dot">.</span></span>
+    </a>
+    <ul class="nav-links nav-desktop" id="navLinksDesktop">
+      <li><a href="#about" data-cursor="link">About</a></li>
+      <li><a href="#skills" data-cursor="link">Skills</a></li>
+      <li><a href="#education" data-cursor="link">Education</a></li>
+      <li><a href="#projects" data-cursor="link">Projects</a></li>
+      <li><a href="#blog" data-cursor="link">Blog</a></li>
+      <li><a href="#contact" data-cursor="link">Contact</a></li>
+      <li><a href="./ShamimAlam.pdf" target="_blank" rel="noopener" class="nav-resume" data-cursor="link">
+          <i class="fas fa-file-alt"></i> Resume
+        </a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" data-cursor="link">
+          <i class="fas fa-moon"></i>
+        </button>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-links" id="mobileLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./ShamimAlam.pdf" target="_blank" rel="noopener" class="nav-resume">
+          <i class="fas fa-file-alt"></i> Resume
+        </a></li>
+      <li>
+        <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i> <span>Dark Mode</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="badge-avail">
+          <span class="badge-pip"></span>
+          Available for Opportunities
+        </div>
+        <div class="hero-name-wrap">
+          <h1 class="hero-name">Shamim Alam</h1>
+          <svg class="hero-signature" viewBox="0 0 420 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="sigGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--gold)" />
+                <stop offset="50%" stop-color="var(--emerald)" />
+                <stop offset="100%" stop-color="var(--azure)" />
+              </linearGradient>
+            </defs>
+            <path d="M6,14 C 40,4 70,20 105,10 C 140,0 170,18 210,9 C 250,1 285,17 320,8 C 350,1 380,15 414,7" />
+          </svg>
+        </div>
+        <span class="hero-name-outline">Frontend Developer <span class="react-text">(React)</span></span>
+        <div class="hero-role">Aspiring Full Stack (MERN) Developer</div>
+        <div class="typed-row">
+          <span class="typed-prefix">&gt;&nbsp;</span>
+          <span class="typed-text" id="typed"></span>
+          <span class="typed-chip" id="typedChip"></span>
+          <span class="t-cursor"></span>
+        </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary" data-cursor="link"><i class="fas fa-folder-open"></i> View My Work</a>
+          <a href="#contact" class="btn-outline" data-cursor="link"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-img-wrap" id="tiltImg">
+          <div class="ring ring-glow"></div>
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="corner c-tl"></div>
+          <div class="corner c-tr"></div>
+          <div class="corner c-bl"></div>
+          <div class="corner c-br"></div>
+          <img src="./images/shamim.jpeg" alt="Shamim Alam — Frontend Developer" loading="eager" width="264"
+            height="264">
+          <div class="hero-badge hb-1">
+            <div class="hb-icon">🎓</div>
+            <div>
+              <div class="hb-lbl">CGPA</div>
+              <div class="hb-val" data-count="3.319">0</div>
+            </div>
+          </div>
+          <div class="hero-badge hb-2">
+            <div class="hb-icon">🛠️</div>
+            <div>
+              <div class="hb-lbl">Projects</div>
+              <div class="hb-val"><span data-count="6">0</span>+ Built</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span><i class="fab fa-react"></i>React</span>
+      <span><i class="fas fa-code"></i>JavaScript ES6+</span>
+      <span><i class="fab fa-node-js"></i>Node.js</span>
+      <span><i class="fas fa-server"></i>Express.js</span>
+      <span><i class="fas fa-leaf"></i>MongoDB</span>
+      <span><i class="fab fa-css3-alt"></i>Tailwind CSS</span>
+      <span><i class="fab fa-html5"></i>HTML5</span>
+      <span><i class="fab fa-git-alt"></i>Git & GitHub</span>
+      <span><i class="fas fa-plug"></i>REST API</span>
+      <span><i class="fas fa-mobile-alt"></i>Responsive Design</span>
+      <span><i class="fab fa-react"></i>React</span>
+      <span><i class="fas fa-code"></i>JavaScript ES6+</span>
+      <span><i class="fab fa-node-js"></i>Node.js</span>
+      <span><i class="fas fa-server"></i>Express.js</span>
+      <span><i class="fas fa-leaf"></i>MongoDB</span>
+      <span><i class="fab fa-css3-alt"></i>Tailwind CSS</span>
+      <span><i class="fab fa-html5"></i>HTML5</span>
+      <span><i class="fab fa-git-alt"></i>Git & GitHub</span>
+      <span><i class="fas fa-plug"></i>REST API</span>
+      <span><i class="fas fa-mobile-alt"></i>Responsive Design</span>
+    </div>
+  </div>
+
+  <div class="divider"><span class="gem"></span></div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="sec-eye reveal">Profile</div>
+    <div class="about-grid">
+      <div>
+        <h2 class="sec-title reveal">
+          Building modern<br>
+          <em>web experiences.</em>
+        </h2>
+        <div class="about-body reveal">
+          <p>I am a <em>Frontend Developer</em> focused on building clean, responsive, and user-friendly web
+            applications using modern technologies.</p>
+          <p>My core stack includes <strong>HTML, CSS, Tailwind CSS, JavaScript, and React</strong>, with a strong focus
+            on performance, reusability, and clean UI design.</p>
+          <p>I am currently expanding into <em>Full Stack (MERN)</em> development with <strong>Node.js, Express, and
+              MongoDB</strong> to build complete end-to-end web applications.</p>
+        </div>
+        <div class="about-facts stagger">
+          <div class="fact-card">
+            <div class="fact-lbl">Location</div>
+            <div class="fact-val">Dhaka, Bangladesh</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-lbl">Status</div>
+            <div class="fact-val">Open to Work ✓</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-lbl">Focus</div>
+            <div class="fact-val">React / MERN</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-lbl">Tech Stack</div>
+            <div class="fact-val">React · Node · Express · MongoDB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal reveal">
+        <div class="term-bar">
+          <div class="tdot td-r"></div>
+          <div class="tdot td-y"></div>
+          <div class="tdot td-g"></div>
+          <span>shamim@portfolio — bash</span>
+        </div>
+        <div class="term-body">
+          <span class="tl"><span class="tp">❯</span> <span class="tc">whoami</span></span>
+          <span class="tl to thl">Frontend Developer (React)</span>
+          <span class="tl to" style="color:var(--azure)">Aspiring Full Stack Developer (MERN)</span>
+          <span class="tl">&nbsp;</span>
+          <span class="tl"><span class="tp">❯</span> <span class="tc">cat skills.txt</span></span>
+          <span class="tl to">HTML · CSS · JavaScript · React</span>
+          <span class="tl to">Tailwind CSS · Node.js · Express.js · MongoDB</span>
+          <span class="tl to">Git · GitHub · REST API · Responsive Design</span>
+          <span class="tl">&nbsp;</span>
+          <span class="tl"><span class="tp">❯</span> <span class="tc">cat goals.txt</span></span>
+          <span class="tl to"><span class="tbl">▸ </span>Frontend / MERN Stack Developer Role</span>
+          <span class="tl to"><span class="tbl">▸ </span>Build Real-World Full Stack Projects</span>
+          <span class="tl to"><span class="tbl">▸ </span>Strengthen Backend (Node.js, Express, MongoDB)</span>
+          <span class="tl to"><span class="tbl">▸ </span>Write Clean, Scalable Code</span>
+          <span class="tl">&nbsp;</span>
+          <span class="tl"><span class="tp">❯</span> <span class="tc">cat learning.txt</span></span>
+          <span class="tl to">Node.js · Express.js · MongoDB</span>
+          <span class="tl to">System Design Basics</span>
+          <span class="tl">&nbsp;</span>
+          <span class="tl"><span class="tp">❯</span> <span class="tc">_</span><span class="t-cursor"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="sec-eye reveal">Capabilities</div>
+    <h2 class="sec-title reveal">What I bring<br><em>to the table.</em></h2>
+    <div class="skills-grid stagger">
+      <div class="skill-card" data-cursor="link" data-tilt>
+        <div class="sk-icon">💻</div>
+        <div class="sk-title">Frontend Development</div>
+        <p class="sk-desc">Building responsive, accessible UIs with clean semantic markup and modern CSS.</p>
+        <div class="sk-tags"><span class="sk-tag">HTML5</span><span class="sk-tag">CSS3</span><span
+            class="sk-tag">JavaScript ES6+</span></div>
+      </div>
+      <div class="skill-card" data-cursor="link" data-tilt>
+        <div class="sk-icon">⚛️</div>
+        <div class="sk-title">React Development</div>
+        <p class="sk-desc">Building component-based UIs, managing state with hooks, and creating SPAs.</p>
+        <div class="sk-tags"><span class="sk-tag">React</span><span class="sk-tag">Hooks</span><span
+            class="sk-tag">SPA</span></div>
+      </div>
+      <div class="skill-card" data-cursor="link" data-tilt>
+        <div class="sk-icon">🎨</div>
+        <div class="sk-title">UI Design & Styling</div>
+        <p class="sk-desc">Crafting pixel-perfect layouts using utility-first CSS and responsive design.</p>
+        <div class="sk-tags"><span class="sk-tag">Tailwind CSS</span><span class="sk-tag">Bootstrap</span><span
+            class="sk-tag">Responsive UI</span></div>
+      </div>
+      <div class="skill-card" data-cursor="link" data-tilt>
+        <div class="sk-icon">⚙️</div>
+        <div class="sk-title">Backend Development</div>
+        <p class="sk-desc">Building RESTful APIs and server-side applications with focus on scalability, authentication,
+          and clean architecture.</p>
+        <div class="sk-tags"><span class="sk-tag">Node.js</span><span class="sk-tag">Express.js</span><span
+            class="sk-tag">MongoDB</span><span class="sk-tag">REST API</span></div>
+      </div>
+      <div class="skill-card" data-cursor="link" data-tilt>
+        <div class="sk-icon">🛠️</div>
+        <div class="sk-title">Tools & Workflow</div>
+        <p class="sk-desc">Version control, modern editors, and CLI tools for efficient development.</p>
+        <div class="sk-tags"><span class="sk-tag">Git</span><span class="sk-tag">GitHub</span><span class="sk-tag">VS
+            Code</span></div>
+      </div>
+      <div class="skill-card" data-cursor="link" data-tilt>
+        <div class="sk-icon">🧠</div>
+        <div class="sk-title">Problem Solving</div>
+        <p class="sk-desc">Sharpening logic and algorithmic thinking through practice and real projects.</p>
+        <div class="sk-tags"><span class="sk-tag">C++</span><span class="sk-tag">Logic Building</span><span
+            class="sk-tag">DSA Basics</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="sec-eye reveal">Timeline</div>
+    <h2 class="sec-title reveal">My academic<br><em>journey.</em></h2>
+    <div class="edu-wrap reveal">
+      <div class="edu-item">
+        <div class="edu-line">
+          <div class="edu-node"></div>
+          <div class="edu-conn"></div>
+        </div>
+        <div class="edu-card-inner">
+          <div class="edu-degree">B.Sc. in Computer Science & Engineering</div>
+          <div class="edu-school">Ahsanullah University of Science & Technology</div>
+          <div class="edu-metas"><span class="edu-badge">2021 – 2025</span><span class="edu-badge gold">CGPA 3.32 /
+              4.00</span></div>
+          <p class="edu-desc">Focused on software engineering, frontend development, data structures and practical
+            technical skills.</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-line">
+          <div class="edu-node"></div>
+          <div class="edu-conn"></div>
+        </div>
+        <div class="edu-card-inner">
+          <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+          <div class="edu-school">Shyamnagar Govt. Mohashin Degree College</div>
+          <div class="edu-metas"><span class="edu-badge">2017 – 2019</span><span class="edu-badge gold">GPA 5.00 /
+              5.00</span></div>
+          <p class="edu-desc">Completed Science stream with top academic performance across all subjects.</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-line">
+          <div class="edu-node"></div>
+          <div class="edu-conn"></div>
+        </div>
+        <div class="edu-card-inner">
+          <div class="edu-degree">Secondary School Certificate (SSC)</div>
+          <div class="edu-school">Nakipur H.C. Pilot Model High School</div>
+          <div class="edu-metas"><span class="edu-badge">2015 – 2017</span><span class="edu-badge gold">GPA 5.00 /
+              5.00</span></div>
+          <p class="edu-desc">Built a solid foundation in Science and Mathematics with distinction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="sec-eye reveal">Selected Work</div>
+    <h2 class="sec-title reveal">Things I've<br><em>built.</em></h2>
+    <div class="proj-filters reveal" id="projFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Frontend">Frontend</button>
+      <button class="filter-btn" data-filter="React Project">React</button>
+      <button class="filter-btn" data-filter="Tailwind CSS">Tailwind CSS</button>
+      <button class="filter-btn" data-filter="Full Stack">Full Stack</button>
+
+    </div>
+    <div class="proj-grid stagger" id="projGrid">
+      <div class="proj-card" data-tilt data-project="1" data-cat="Frontend" data-repo="shamim-01/e-Commarce">
+        <div class="proj-thumb"><span class="proj-emoji">🛒</span>
+          <div class="proj-acts">
+            <a href="https://shamim-01.github.io/e-Commarce/" class="proj-btn" title="Live Demo"><i
+                class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/shamim-01/e-Commarce" class="proj-btn" title="Source"><i
+                class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Frontend</div>
+          <div class="proj-title">E-Commerce Website</div>
+          <p class="proj-desc">StyleShop — a polished e-commerce demo featuring products, deals, and a responsive cart
+            sidebar.</p>
+          <div class="proj-stack"><span class="stack-pill">HTML</span><span class="stack-pill">CSS3</span><span
+              class="stack-pill">JavaScript</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-tilt data-project="2" data-cat="React Project"
+        data-repo="shamim-01/React-project-coding_journey">
+        <div class="proj-thumb"><span class="proj-emoji">🎨</span>
+          <div class="proj-acts">
+            <a href="https://react-project-coding-journey.vercel.app/" class="proj-btn" title="Live Demo"><i
+                class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/shamim-01/React-project-coding_journey" class="proj-btn" title="Source"><i
+                class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">React Project</div>
+          <div class="proj-title">The Coding Journey</div>
+          <p class="proj-desc">Helps aspiring developers learn coding through structured tutorials, real-world projects,
+            and skill-building exercises.</p>
+          <div class="proj-stack"><span class="stack-pill">React</span><span class="stack-pill">Tailwind CSS</span><span
+              class="stack-pill">Framer Motion</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-tilt data-project="3" data-cat="Tailwind CSS" data-repo="shamim-01/tailwind">
+        <div class="proj-thumb"><span class="proj-emoji">🌐</span>
+          <div class="proj-acts">
+            <a href="https://shamim-01.github.io/tailwind/" class="proj-btn" title="Live Demo"><i
+                class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/shamim-01/tailwind" class="proj-btn" title="Source"><i
+                class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Tailwind CSS</div>
+          <div class="proj-title">TravelPro Elite</div>
+          <p class="proj-desc">Responsive single-page travel landing page with custom Tailwind styling and PostCSS build
+            pipeline.</p>
+          <div class="proj-stack"><span class="stack-pill">Tailwind CSS</span><span
+              class="stack-pill">PostCSS</span><span class="stack-pill">JavaScript</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-tilt data-project="4" data-cat="React Project" data-repo="shamim-01/react-project">
+        <div class="proj-thumb"><span class="proj-emoji">🚀</span>
+          <div class="proj-acts">
+            <a href="https://react-project-adq4.vercel.app/" class="proj-btn" title="Live Demo"><i
+                class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/shamim-01/react-project" class="proj-btn" title="Source"><i
+                class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">React Project</div>
+          <div class="proj-title">Smart Coders</div>
+          <p class="proj-desc">Modern landing page with React + Vite, smooth Framer Motion animations, and clean
+            responsive UI.</p>
+          <div class="proj-stack"><span class="stack-pill">React</span><span class="stack-pill">Tailwind CSS</span><span
+              class="stack-pill">Framer Motion</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-tilt data-project="5" data-cat="Full Stack" data-repo="shamim-01/To-do-System">
+        <div class="proj-thumb"><span class="proj-emoji">📋</span>
+          <div class="proj-acts">
+            <a href="https://shamim-01.github.io/To-do-System/" class="proj-btn" title="Live Demo"><i
+                class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/shamim-01/To-do-System" class="proj-btn" title="Source"><i
+                class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-cat">Full Stack</div>
+          <div class="proj-title">To Do System</div>
+          <p class="proj-desc">Smart task manager with priority labels, search & filters, progress analytics, and
+            LocalStorage persistence.</p>
+          <div class="proj-stack"><span class="stack-pill">HTML</span><span class="stack-pill">CSS</span><span
+              class="stack-pill">JavaScript</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
+  <!-- BLOG -->
+  <section class="section" id="blog">
+    <div class="sec-eye reveal">Writing</div>
+    <h2 class="sec-title reveal">Notes from<br><em>the journey.</em></h2>
+    <div class="blog-filters reveal" id="blogFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="React">React</button>
+      <button class="filter-btn" data-filter="Backend">Backend</button>
+      <button class="filter-btn" data-filter="Career">Career</button>
+    </div>
+    <div class="blog-grid stagger" id="blogGrid"></div>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="sec-eye reveal">Say Hello</div>
+    <h2 class="sec-title reveal">Let's build something<br><em>great together.</em></h2>
+    <div class="contact-wrap reveal">
+      <div>
+        <p class="contact-tagline">I'm open to freelance projects, internship positions, and full-time frontend roles.
+          Drop me a message — I'll respond within 24 hours.</p>
+        <div class="contact-items">
+          <a href="mailto:shamimalam4949@gmail.com" class="contact-item" data-cursor="link">
+            <div class="ci-ico"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="ci-lbl">Email</div>
+              <div class="ci-val">shamimalam4949@gmail.com</div>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="ci-ico"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="ci-lbl">Location</div>
+              <div class="ci-val">Dhaka, Bangladesh</div>
+            </div>
+          </div>
+          <a href="tel:+8801880003042" class="contact-item" data-cursor="link">
+            <div class="ci-ico"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="ci-lbl">Phone</div>
+              <div class="ci-val">+880 1880 003042</div>
+            </div>
+          </a>
+        </div>
+        <div class="social-strip">
+          <a href="https://github.com/shamim-01" class="soc-btn" title="GitHub" data-cursor="link"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/shamim-alam-620719330/" class="soc-btn" title="LinkedIn"
+            data-cursor="link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/sha_mim_49/" class="soc-btn" title="Instagram" data-cursor="link"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/shamim.alam.78" class="soc-btn" title="Facebook" data-cursor="link"><i
+              class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="field-row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-send" data-cursor="link"><i class="fas fa-paper-plane"></i> Send
+          Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark">SA</span>
+          <span class="logo-text">Shamim<span class="dot">.</span>dev</span>
+        </a>
+        <p class="foot-bio">Frontend developer crafting digital experiences with modern web tech. Available for
+          freelance and full-time roles.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigation</h5>
+        <ul class="foot-links">
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+          <li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
+          <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+          <li><a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <ul class="foot-links">
+          <li><a href="mailto:shamimalam4949@gmail.com"><i class="fas fa-envelope"></i> Email Me</a></li>
+          <li><a href="https://github.com/shamim-01"><i class="fab fa-github"></i> GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/shamim-alam-620719330/"><i class="fab fa-linkedin-in"></i>
+              LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/sha_mim_49/"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <span>© <span id="copyYear">2026</span> Shamim Alam. All rights reserved.</span>
+      <span>Designed & built with <span class="heart">♥</span> by Shamim</span>
+      <a href="#home" class="back-top"><i class="fas fa-arrow-up"></i> Back to top</a>
+    </div>
+  </footer>
+
+  <!-- PROJECT QUICK VIEW MODAL -->
+  <div class="proj-overlay" id="projOverlay">
+    <div class="proj-modal">
+      <button class="proj-modal-close" id="projModalClose" aria-label="Close">&times;</button>
+      <div class="proj-modal-thumb" id="pmThumb"></div>
+      <div class="proj-modal-body">
+        <div class="proj-cat" id="pmCat"></div>
+        <h3 id="pmTitle"></h3>
+        <p class="proj-modal-desc" id="pmDesc"></p>
+        <div class="proj-stack" id="pmStack"></div>
+        <div class="proj-modal-actions">
+          <a href="#" id="pmLive" target="_blank" rel="noopener" class="btn-primary"><i
+              class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="#" id="pmSource" target="_blank" rel="noopener" class="btn-outline"><i class="fab fa-github"></i>
+            Source Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG READ MODAL -->
+  <div class="proj-overlay" id="blogOverlay">
+    <div class="proj-modal blog-modal">
+      <button class="proj-modal-close" id="blogModalClose" aria-label="Close">&times;</button>
+      <div class="blog-modal-thumb" id="bmThumb"></div>
+      <div class="blog-modal-body">
+        <div class="proj-cat" id="bmCat"></div>
+        <h3 id="bmTitle"></h3>
+        <div class="blog-modal-meta" id="bmMeta"></div>
+        <div class="blog-modal-content" id="bmContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

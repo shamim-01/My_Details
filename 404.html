@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Shamim Alam</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,560;9..144,680&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      cursor: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .nf-code {
+      font-family: 'Fraunces', serif;
+      font-weight: 560;
+      font-style: italic;
+      font-size: clamp(4rem, 16vw, 9rem);
+      line-height: 1;
+      color: var(--azure);
+      background: linear-gradient(100deg, var(--gold), var(--emerald), var(--azure), var(--gold));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 9s linear infinite;
+    }
+
+    .nf-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 560;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      margin: 0.5rem 0 0.8rem;
+    }
+
+    .nf-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 420px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .nf-prompt {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--dim);
+      margin-top: 2.5rem;
+    }
+
+    .nf-prompt span {
+      color: var(--gold-soft);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-bg"></div>
+  <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+
+  <div style="position:relative;z-index:1;">
+    <div class="nf-code">404</div>
+    <h1 class="nf-title">This page wandered off the stack.</h1>
+    <p class="nf-desc">The page you're looking for doesn't exist or may have been moved. Let's get you back to
+      somewhere useful.</p>
+    <div class="hero-cta" style="justify-content:center; opacity:1; animation:none;">
+      <a href="./index.html" class="btn-primary"><i class="fas fa-house"></i> Back to Home</a>
+      <a href="./index.html#projects" class="btn-outline"><i class="fas fa-folder-open"></i> View Projects</a>
+    </div>
+    <p class="nf-prompt"><span>❯</span> cd ~/home &amp;&amp; try again</p>
+  </div>
+</body>
+
+</html>
