@@ -381,7 +381,7 @@ document
     });
   });
 
-/* PROJECT QUICK VIEW MODAL */
+/* PROJECT QUICK VIEW MODAL — now with case studies (problem / solution / learnings) */
 const projectsData = {
   1: {
     cat: 'Frontend',
@@ -391,6 +391,12 @@ const projectsData = {
     stack: ['HTML', 'CSS3', 'JavaScript'],
     live: 'https://shamim-01.github.io/e-Commarce/',
     source: 'https://github.com/shamim-01/e-Commarce',
+    problem:
+      'বেশিরভাগ frontend প্র্যাকটিস প্রজেক্ট static থাকে — real cart interaction বা quantity/price sync থাকে না।',
+    solution:
+      'Vanilla JS দিয়ে live cart state, quantity control আর category filter বানানো হয়েছে, কোনো framework ছাড়াই — DOM-কে সরাসরি efficient ভাবে update করে।',
+    learnings:
+      'DOM manipulation efficiently করা এবং UI-র সাথে state sync রাখা শিখেছি, কোড bloated না করেই।',
   },
   2: {
     cat: 'React Project',
@@ -400,6 +406,12 @@ const projectsData = {
     stack: ['React', 'Tailwind CSS', 'Framer Motion'],
     live: 'https://react-project-coding-journey.vercel.app/',
     source: 'https://github.com/shamim-01/React-project-coding_journey',
+    problem:
+      'শুরুতে pages আগে বানিয়ে ফেলছিলাম component-first না ভেবেই — ফলে markup অনেক জায়গায় duplicate হয়ে যাচ্ছিল।',
+    solution:
+      'প্রতিটা repeated pattern (card, section header, button) কে ছোট, prop-driven component-এ ভাগ করে ফেলি, এমনকি দ্বিতীয় use-case আসার আগেই।',
+    learnings:
+      'Component আগে থেকেই ছোট রাখলে প্রজেক্ট বড় হওয়ার সময় maintain করা অনেক সহজ হয় — এবং animation trigger একসাথে বেশি না রাখলে performance ভালো থাকে।',
   },
   3: {
     cat: 'Tailwind CSS',
@@ -409,6 +421,12 @@ const projectsData = {
     stack: ['Tailwind CSS', 'PostCSS', 'JavaScript'],
     live: 'https://shamim-01.github.io/tailwind/',
     source: 'https://github.com/shamim-01/tailwind',
+    problem:
+      'Utility-first CSS দিয়ে landing page বানালে সহজেই class list অগোছালো আর inconsistent হয়ে যায়।',
+    solution:
+      'PostCSS build pipeline সেট করে custom Tailwind config বানিয়েছি, যাতে design token (color, spacing) consistent থাকে পুরো পেজ জুড়ে।',
+    learnings:
+      'Consistent design token তৈরি করলে utility classes ব্যবহার করেও clean, maintainable styling সম্ভব।',
   },
   4: {
     cat: 'React Project',
@@ -418,6 +436,12 @@ const projectsData = {
     stack: ['React', 'Tailwind CSS', 'Framer Motion'],
     live: 'https://react-project-adq4.vercel.app/',
     source: 'https://github.com/shamim-01/react-project',
+    problem:
+      'Create React App দিয়ে dev server স্লো লাগছিল, বড় প্রজেক্টে iteration speed কমে যাচ্ছিল।',
+    solution:
+      'Vite দিয়ে পুরো সেটআপ rebuild করি — instant HMR আর দ্রুত build time পেয়ে animation নিয়ে বেশি experiment করতে পেরেছি।',
+    learnings:
+      'Build tool-এর গতি সরাসরি development experience-কে প্রভাবিত করে — দ্রুত feedback loop মানে দ্রুত ভালো UI decision নেওয়া যায়।',
   },
   5: {
     cat: 'Full Stack',
@@ -427,6 +451,12 @@ const projectsData = {
     stack: ['HTML', 'CSS', 'JavaScript'],
     live: 'https://shamim-01.github.io/To-do-System/',
     source: 'https://github.com/shamim-01/To-do-System',
+    problem:
+      'সাধারণ to-do app গুলোতে priority, filter আর progress analytics একসাথে থাকে না — বেশিরভাগই খুব basic।',
+    solution:
+      'LocalStorage-ভিত্তিক persistent state বানিয়ে priority label, search/filter এবং একটা progress analytics view যোগ করেছি।',
+    learnings:
+      'ছোট প্রজেক্টেও real state management pattern practice করলে বড় প্রজেক্টে state হ্যান্ডেল করা অনেক সহজ মনে হয়।',
   },
   6: {
     cat: 'Data Analysis',
@@ -436,6 +466,12 @@ const projectsData = {
     stack: ['Microsoft Excel', 'Pivot Tables', 'Charts'],
     live: 'https://1drv.ms/x/c/68DD670D228DF5E1/IQBC7jZgQt3VQY-0juUeygvGAXYgHhWDpdpU4pes8fXq310?e=K8k85P',
     source: 'https://github.com/shamim-01/Data-Analysis-dash-board-Excel-',
+    problem:
+      'কাঁচা sales data থেকে সরাসরি সিদ্ধান্ত নেওয়া কঠিন — pattern আর trend খালি চোখে বোঝা যায় না।',
+    solution:
+      'Pivot Table, dynamic chart আর slicer ব্যবহার করে একটা interactive dashboard বানিয়েছি যেখানে filter করে বিভিন্ন কোণ থেকে data দেখা যায়।',
+    learnings:
+      'Data visualization-এর আসল কাজ হলো decision-কে সহজ করা — শুধু চার্ট বানানো না, সঠিক প্রশ্নের উত্তর দেওয়া।',
   },
 };
 
@@ -446,7 +482,12 @@ function openProjectModal(id) {
   document.getElementById('pmThumb').textContent = p.emoji;
   document.getElementById('pmCat').textContent = p.cat;
   document.getElementById('pmTitle').textContent = p.title;
-  document.getElementById('pmDesc').textContent = p.desc;
+  document.getElementById('pmDesc').innerHTML = `
+    <p>${p.desc}</p>
+    ${p.problem ? `<div class="cs-block"><b>Problem</b><p>${p.problem}</p></div>` : ''}
+    ${p.solution ? `<div class="cs-block"><b>Solution</b><p>${p.solution}</p></div>` : ''}
+    ${p.learnings ? `<div class="cs-block"><b>Learnings</b><p>${p.learnings}</p></div>` : ''}
+  `;
   document.getElementById('pmStack').innerHTML = p.stack
     .map(s => `<span class="stack-pill">${s}</span>`)
     .join('');
@@ -534,6 +575,24 @@ if (eduWrap) {
   eduObs.observe(eduWrap);
 }
 
+/* CURRENTLY LEARNING — trigger progress bar fill on scroll into view */
+(function () {
+  const items = document.querySelectorAll('.learn-item');
+  if (!items.length) return;
+  const learnObs = new IntersectionObserver(
+    entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('vis');
+          learnObs.unobserve(en.target);
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+  items.forEach(el => learnObs.observe(el));
+})();
+
 /* FORM */
 document
   .getElementById('contactForm')
@@ -556,7 +615,8 @@ document
       alert('❌ Network error. Please try again.');
     }
   });
-/* ═══ GITHUB LIVE STATS (add to script.js) ═══
+
+/* ═══ GITHUB LIVE STATS — per-project card (star/fork/updated) ═══
    Reads data-repo="owner/name" off each .proj-card, fetches star/fork
    counts + last-updated date from the public GitHub API, and renders
    them inline. Results are cached in localStorage for 1 hour so the
@@ -657,6 +717,67 @@ document
     ? document.addEventListener('DOMContentLoaded', init)
     : init();
 })();
+
+/* ═══ GITHUB PROFILE OVERVIEW — #github-stats section ═══
+   Fetches public profile info (avatar, repos, followers, following)
+   for shamim-01 from the GitHub API and fills the #ghProfile card.
+   The readme-stats / contribution-graph images in that section are
+   static third-party image endpoints — no JS needed for those. */
+(function () {
+  const el = document.getElementById('ghProfile');
+  if (!el) return;
+
+  const CACHE_KEY = 'gh_profile_cache_v1';
+  const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+  function readCache() {
+    try {
+      return JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    } catch {
+      return null;
+    }
+  }
+  function writeCache(data) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+    } catch {
+      /* storage unavailable — profile just won't cache */
+    }
+  }
+
+  function render(u) {
+    el.innerHTML = `
+      <img class="gh-avatar" src="${u.avatar_url}" alt="${u.login}" loading="lazy">
+      <div class="gh-profile-stats">
+        <div class="gh-profile-stat"><b>${u.public_repos}</b><span>Repos</span></div>
+        <div class="gh-profile-stat"><b>${u.followers}</b><span>Followers</span></div>
+        <div class="gh-profile-stat"><b>${u.following}</b><span>Following</span></div>
+      </div>`;
+  }
+
+  function renderError() {
+    el.innerHTML = `<span style="color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:0.8rem"><i class="fab fa-github"></i> GitHub profile এখন load করা যাচ্ছে না।</span>`;
+  }
+
+  const cached = readCache();
+  if (cached && Date.now() - cached.ts < CACHE_TTL) {
+    render(cached.data);
+  }
+
+  fetch('https://api.github.com/users/shamim-01')
+    .then(r => {
+      if (!r.ok) throw new Error('GitHub API error: ' + r.status);
+      return r.json();
+    })
+    .then(u => {
+      render(u);
+      writeCache(u);
+    })
+    .catch(() => {
+      if (!cached) renderError();
+    });
+})();
+
 /* ═══ BLOG SECTION (add to script.js) ═══
    Edit blogData below to add/remove posts — everything else (grid
    render, filtering, read modal) wires itself up automatically. */

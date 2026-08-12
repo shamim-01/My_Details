@@ -81,8 +81,10 @@
     <ul class="nav-links nav-desktop" id="navLinksDesktop">
       <li><a href="#about" data-cursor="link">About</a></li>
       <li><a href="#skills" data-cursor="link">Skills</a></li>
+      <li><a href="#learning" data-cursor="link">Learning</a></li>
       <li><a href="#education" data-cursor="link">Education</a></li>
       <li><a href="#projects" data-cursor="link">Projects</a></li>
+      <li><a href="#github-stats" data-cursor="link">GitHub</a></li>
       <li><a href="#blog" data-cursor="link">Blog</a></li>
       <li><a href="#contact" data-cursor="link">Contact</a></li>
       <li><a href="./ShamimAlam.pdf" target="_blank" rel="noopener" class="nav-resume" data-cursor="link">
@@ -103,8 +105,10 @@
     <ul class="mobile-links" id="mobileLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#learning">Learning</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#github-stats">GitHub</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="./ShamimAlam.pdf" target="_blank" rel="noopener" class="nav-resume">
@@ -341,6 +345,40 @@
 
   <div class="divider"><span class="gem"></span></div>
 
+  <!-- CURRENTLY LEARNING -->
+  <section class="section" id="learning">
+    <div class="sec-eye reveal">In Progress</div>
+    <h2 class="sec-title reveal">Currently<br><em>learning.</em></h2>
+    <div class="learn-grid stagger">
+      <div class="learn-item">
+        <div class="learn-head"><span>Node.js & Express.js</span><span class="learn-pct">65%</span></div>
+        <div class="learn-bar">
+          <div class="learn-fill" style="--w:65%"></div>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-head"><span>MongoDB & Mongoose</span><span class="learn-pct">55%</span></div>
+        <div class="learn-bar">
+          <div class="learn-fill" style="--w:55%"></div>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-head"><span>REST API Design</span><span class="learn-pct">70%</span></div>
+        <div class="learn-bar">
+          <div class="learn-fill" style="--w:70%"></div>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-head"><span>System Design Basics</span><span class="learn-pct">30%</span></div>
+        <div class="learn-bar">
+          <div class="learn-fill" style="--w:30%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
   <!-- EDUCATION -->
   <section class="section" id="education">
     <div class="sec-eye reveal">Timeline</div>
@@ -504,6 +542,41 @@
 
   <div class="divider"><span class="gem"></span></div>
 
+  <!-- GITHUB STATS -->
+  <section class="section" id="github-stats">
+    <div class="sec-eye reveal">Activity</div>
+    <h2 class="sec-title reveal">Live from<br><em>GitHub.</em></h2>
+
+    <div class="gh-profile reveal" id="ghProfile">
+      <div class="gh-avatar-skel"></div>
+      <div class="gh-profile-stats">
+        <div class="gh-profile-stat"><b><span class="gh-skel" style="width:30px"></span></b><span>Repos</span></div>
+        <div class="gh-profile-stat"><b><span class="gh-skel" style="width:30px"></span></b><span>Followers</span></div>
+        <div class="gh-profile-stat"><b><span class="gh-skel" style="width:30px"></span></b><span>Following</span></div>
+      </div>
+    </div>
+
+    <div class="gh-cards-grid reveal">
+      <img class="gh-card"
+        src="https://github-readme-stats.vercel.app/api?username=shamim-01&show_icons=true&hide_border=true&bg_color=00000000&title_color=e8794a&icon_color=0fa383&text_color=585c76"
+        alt="GitHub Stats" loading="lazy">
+      <img class="gh-card"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=shamim-01&layout=compact&hide_border=true&bg_color=00000000&title_color=e8794a&text_color=585c76"
+        alt="Top Languages" loading="lazy">
+    </div>
+
+    <div class="gh-contrib reveal">
+      <div class="gh-contrib-lbl">Contribution Activity</div>
+      <img src="https://ghchart.rshah.org/6a4ae2/shamim-01" alt="GitHub Contribution Graph" loading="lazy">
+    </div>
+
+    <a href="https://github.com/shamim-01" target="_blank" rel="noopener" class="btn-outline gh-profile-link reveal">
+      <i class="fab fa-github"></i> View Full GitHub Profile
+    </a>
+  </section>
+
+  <div class="divider"><span class="gem"></span></div>
+
   <!-- BLOG -->
   <section class="section" id="blog">
     <div class="sec-eye reveal">Writing</div>
@@ -592,6 +665,7 @@
           <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
           <li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
           <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+          <li><a href="#github-stats"><i class="fas fa-chevron-right"></i> GitHub</a></li>
           <li><a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a></li>
           <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
         </ul>
@@ -622,7 +696,7 @@
       <div class="proj-modal-body">
         <div class="proj-cat" id="pmCat"></div>
         <h3 id="pmTitle"></h3>
-        <p class="proj-modal-desc" id="pmDesc"></p>
+        <div class="proj-modal-desc" id="pmDesc"></div>
         <div class="proj-stack" id="pmStack"></div>
         <div class="proj-modal-actions">
           <a href="#" id="pmLive" target="_blank" rel="noopener" class="btn-primary"><i

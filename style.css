@@ -43,7 +43,6 @@ html[data-theme='dark'] {
   --dim: #656b8f;
   --line: #060b1a;
   --line-2: #060b1a;
-
 }
 
 html {
@@ -1917,6 +1916,61 @@ html[data-theme='dark'] .theme-toggle i::before {
   background: rgba(106, 74, 226, 0.14);
 }
 
+/* currently learning */
+.learn-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 640px;
+}
+
+.learn-item {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.55),
+    var(--surface-2)
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 1.1rem 1.3rem;
+}
+
+.learn-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  margin-bottom: 0.7rem;
+  color: var(--ink);
+}
+
+.learn-pct {
+  color: var(--gold-soft);
+  font-size: 0.72rem;
+}
+
+.learn-bar {
+  height: 8px;
+  border-radius: 100px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.learn-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--emerald), var(--azure));
+  border-radius: 100px;
+  transition: width 1.2s var(--ease);
+  box-shadow: 0 0 10px rgba(15, 163, 131, 0.35);
+}
+
+.learn-item.vis .learn-fill {
+  width: var(--w);
+}
+
 /* education timeline */
 .edu-wrap {
   display: flex;
@@ -2430,6 +2484,116 @@ html[data-theme='dark'] .theme-toggle i::before {
   transform: translateY(-2px);
 }
 
+/* github stats section */
+.gh-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.6),
+    var(--surface-2)
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.gh-profile img.gh-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(232, 121, 74, 0.4);
+  flex-shrink: 0;
+}
+
+.gh-avatar-skel {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(
+    90deg,
+    var(--line) 25%,
+    var(--line-2) 50%,
+    var(--line) 75%
+  );
+  background-size: 200% 100%;
+  animation: skelShimmer 1.3s ease-in-out infinite;
+}
+
+.gh-profile-stats {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.gh-profile-stat {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.gh-profile-stat b {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 560;
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.gh-profile-stat span {
+  font-size: 0.62rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gh-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.gh-card {
+  width: 100%;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  display: block;
+}
+
+.gh-contrib {
+  overflow-x: auto;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.6),
+    var(--surface-2)
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.gh-contrib-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: var(--gold-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.gh-contrib img {
+  min-width: 640px;
+  width: 100%;
+}
+
+.gh-profile-link {
+  width: fit-content;
+}
+
 /* contact */
 .contact-wrap {
   display: grid;
@@ -2940,6 +3104,30 @@ footer {
   margin-bottom: 1.4rem;
 }
 
+.proj-modal-desc p {
+  margin-bottom: 0.6rem;
+}
+
+.cs-block {
+  margin-top: 1rem;
+}
+
+.cs-block b {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: var(--gold-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.cs-block p {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
 .proj-modal-actions {
   display: flex;
   gap: 0.9rem;
@@ -3330,6 +3518,16 @@ footer {
     align-items: center;
     text-align: center;
   }
+
+  .gh-profile {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .gh-profile-stats {
+    justify-content: center;
+  }
 }
 
 /* extra small phones */
@@ -3412,7 +3610,10 @@ html[data-theme='dark'] .skill-card,
 html[data-theme='dark'] .edu-card-inner,
 html[data-theme='dark'] .proj-card,
 html[data-theme='dark'] .contact-item,
-html[data-theme='dark'] .terminal {
+html[data-theme='dark'] .terminal,
+html[data-theme='dark'] .learn-item,
+html[data-theme='dark'] .gh-profile,
+html[data-theme='dark'] .gh-contrib {
   background: linear-gradient(
     160deg,
     rgba(255, 255, 255, 0.045),
