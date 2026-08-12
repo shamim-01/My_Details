@@ -28,21 +28,21 @@
 }
 
 html[data-theme='dark'] {
-  --bg: #060b1a;
-  --bg2: #060b1a;
-  --bg3: #060b1a;
-  --surface: #060b1a;
-  --surface-2: #060b1a;
-  --emerald: #7c6ce0;
-  --emerald-dim: #6a5bc9;
-  --gold: #9d87ec;
-  --gold-soft: #bcaaf7;
-  --azure: #a78bfa;
-  --ink: #eef0fb;
-  --muted: #9ea3c4;
-  --dim: #656b8f;
-  --line: #060b1a;
-  --line-2: #060b1a;
+  --bg: #000000;
+  --bg2: #050505;
+  --bg3: #0c0c0c;
+  --surface: #000000;
+  --surface-2: rgba(0, 0, 0, 0.045);
+  --emerald: #31eca7;
+  --emerald-dim: #10b981;
+  --gold: #36ca1c;
+  --gold-soft: #6ae822;
+  --azure: #60a5fa;
+  --ink: #f0f0f0;
+  --muted: #9a9a9a;
+  --dim: #666666;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-2: rgba(255, 255, 255, 0.18);
 }
 
 html {
@@ -1681,6 +1681,14 @@ html[data-theme='dark'] .theme-toggle i::before {
 }
 
 /* skills */
+.skills-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  color: var(--dim);
+  margin: -2.4rem 0 1.6rem;
+  letter-spacing: 0.02em;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1702,6 +1710,7 @@ html[data-theme='dark'] .theme-toggle i::before {
   gap: 1rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   transition:
     border-color 0.35s var(--ease),
     box-shadow 0.4s var(--ease),
@@ -1916,7 +1925,24 @@ html[data-theme='dark'] .theme-toggle i::before {
   background: rgba(106, 74, 226, 0.14);
 }
 
-/* currently learning */
+.sk-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--azure);
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 2;
+  transition: gap 0.25s var(--ease);
+}
+
+.skill-card:hover .sk-more {
+  gap: 0.65rem;
+}
+
+/* learning progress bars (used inside the skill modal) */
 .learn-grid {
   display: flex;
   flex-direction: column;
@@ -2561,6 +2587,97 @@ html[data-theme='dark'] .theme-toggle i::before {
   border-radius: var(--r-lg);
   border: 1px solid var(--line);
   display: block;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.6),
+    var(--surface-2)
+  );
+}
+
+.gh-card-native {
+  padding: 1.4rem 1.6rem;
+  min-height: 168px;
+}
+
+.gh-card-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: var(--gold-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+}
+
+.gh-stats-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.gh-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.gh-stat-row b {
+  font-family: 'Fraunces', serif;
+  font-weight: 560;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.gh-lang-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.gh-lang-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.gh-lang-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.gh-lang-label .gh-lang-name {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--ink);
+}
+
+.gh-lang-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gh-lang-bar-track {
+  height: 6px;
+  border-radius: 100px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.gh-lang-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.1s var(--ease);
 }
 
 .gh-contrib {
@@ -3573,15 +3690,15 @@ footer {
 
 /* dark mode overrides */
 html[data-theme='dark'] nav {
-  background: rgba(13, 14, 23, 0.72);
+  background: rgba(0, 0, 0, 0.72);
 }
 
 html[data-theme='dark'] nav.scrolled {
-  background: rgba(13, 14, 23, 0.92);
+  background: rgba(0, 0, 0, 0.92);
 }
 
 html[data-theme='dark'] .mobile-menu {
-  background: rgba(13, 14, 23, 0.97);
+  background: rgba(0, 0, 0, 0.97);
 }
 
 html[data-theme='dark'] .btn-outline {
@@ -3592,17 +3709,17 @@ html[data-theme='dark'] .btn-outline {
 html[data-theme='dark'] .hero-badge {
   background: linear-gradient(
     160deg,
-    rgba(23, 25, 39, 0.92),
-    rgba(23, 25, 39, 0.72)
+    rgba(10, 10, 10, 0.92),
+    rgba(10, 10, 10, 0.72)
   );
 }
 
 html[data-theme='dark'] .proj-btn {
-  background: rgba(23, 25, 39, 0.9);
+  background: rgba(10, 10, 10, 0.9);
 }
 
 html[data-theme='dark'] .proj-modal-close {
-  background: rgba(23, 25, 39, 0.85);
+  background: rgba(10, 10, 10, 0.85);
 }
 
 html[data-theme='dark'] .fact-card,
@@ -3613,17 +3730,18 @@ html[data-theme='dark'] .contact-item,
 html[data-theme='dark'] .terminal,
 html[data-theme='dark'] .learn-item,
 html[data-theme='dark'] .gh-profile,
-html[data-theme='dark'] .gh-contrib {
+html[data-theme='dark'] .gh-contrib,
+html[data-theme='dark'] .gh-card {
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.035),
     var(--surface-2)
   );
 }
 
 html[data-theme='dark'] .contact-form input,
 html[data-theme='dark'] .contact-form textarea {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--ink);
 }
 
@@ -3632,7 +3750,7 @@ html[data-theme='dark'] .proj-modal {
 }
 
 html[data-theme='dark'] .proj-overlay {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 html[data-theme='dark'] ::-webkit-scrollbar-track {
@@ -3645,7 +3763,7 @@ html[data-theme='dark'] .contact-item::after {
   background: linear-gradient(
     115deg,
     transparent 30%,
-    rgba(255, 255, 255, 0.06) 48%,
+    rgba(255, 255, 255, 0.05) 48%,
     transparent 66%
   );
 }
@@ -3972,7 +4090,7 @@ html[data-theme='dark'] .contact-item::after {
 html[data-theme='dark'] .blog-card {
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.035),
     var(--surface-2)
   );
 }
@@ -3988,5 +4106,104 @@ html[data-theme='dark'] .blog-modal {
   .blog-modal-thumb {
     height: 140px;
     font-size: 3rem;
+  }
+}
+
+/* ═══ SKILL PROGRESS MODAL ═══ */
+.skill-modal-body {
+  padding: 1.8rem 2rem 2.1rem;
+}
+
+.skill-modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.skill-modal-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: var(--r);
+  background: rgba(232, 121, 74, 0.09);
+  border: 1px solid rgba(232, 121, 74, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.skill-modal-head h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 560;
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.skill-modal-tagline {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.skill-modal-body .learn-grid {
+  max-width: none;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.skill-modal-body .learn-item {
+  padding: 0.9rem 1.1rem;
+}
+
+.skill-learned-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.6rem;
+}
+
+.skill-learned-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.skill-learned-list li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.62rem;
+  color: var(--emerald);
+  background: rgba(15, 163, 131, 0.1);
+  border: 1px solid rgba(15, 163, 131, 0.28);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 640px) {
+  .skill-modal-body {
+    padding: 1.5rem 1.4rem 1.8rem;
+  }
+  .skill-modal-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+  .skill-modal-head h3 {
+    font-size: 1.15rem;
   }
 }

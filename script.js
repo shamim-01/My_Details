@@ -575,22 +575,159 @@ if (eduWrap) {
   eduObs.observe(eduWrap);
 }
 
-/* CURRENTLY LEARNING — trigger progress bar fill on scroll into view */
+/* ═══ SKILL PROGRESS MODAL ═══
+   Clicking a skill card opens a modal showing progress bars (for
+   skills still in progress) and a "what I've learned" checklist.
+   Edit skillsData below to update the content per card. */
 (function () {
-  const items = document.querySelectorAll('.learn-item');
-  if (!items.length) return;
-  const learnObs = new IntersectionObserver(
-    entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          en.target.classList.add('vis');
-          learnObs.unobserve(en.target);
-        }
-      });
+  const skillsData = {
+    frontend: {
+      title: 'Frontend Development',
+      icon: '💻',
+      tagline:
+        'Responsive, accessible UIs with clean semantic markup and modern CSS.',
+      learned: [
+        'Semantic HTML5 and accessible markup patterns',
+        'Modern CSS — Flexbox, Grid, custom properties, animations',
+        'Writing clean, reusable JavaScript (ES6+)',
+        'Building fully responsive layouts across devices',
+      ],
     },
-    { threshold: 0.3 },
-  );
-  items.forEach(el => learnObs.observe(el));
+    react: {
+      title: 'React Development',
+      icon: '⚛️',
+      tagline: 'Component-based UIs, state management with hooks, and SPAs.',
+      learned: [
+        'Building component-based UIs with reusable, prop-driven components',
+        'Managing state and side effects with hooks (useState, useEffect)',
+        'Client-side routing for single-page applications',
+        'Animating interfaces with Framer Motion',
+      ],
+    },
+    ui: {
+      title: 'UI Design & Styling',
+      icon: '🎨',
+      tagline:
+        'Pixel-perfect layouts using utility-first CSS and responsive design.',
+      learned: [
+        'Utility-first styling with Tailwind CSS',
+        'Building consistent design systems with reusable tokens',
+        'Responsive design across breakpoints',
+        'Core UI/UX principles for clean, usable interfaces',
+      ],
+    },
+    backend: {
+      title: 'Backend Development',
+      icon: '⚙️',
+      tagline:
+        'RESTful APIs and server-side apps focused on scalability and clean architecture.',
+      progress: [
+        { label: 'Node.js & Express.js', pct: 65 },
+        { label: 'MongoDB & Mongoose', pct: 55 },
+        { label: 'REST API Design', pct: 70 },
+        { label: 'System Design Basics', pct: 30 },
+      ],
+      learned: [
+        'Building REST APIs with Express.js',
+        'Connecting and querying MongoDB with Mongoose',
+        'Basic authentication and request validation',
+        'Structuring a backend project for maintainability',
+      ],
+    },
+    tools: {
+      title: 'Tools & Workflow',
+      icon: '🛠️',
+      tagline:
+        'Version control, modern editors, and CLI tools for efficient development.',
+      learned: [
+        'Git version control — branching, merging, rebasing',
+        'Collaborating and hosting projects on GitHub',
+        'Efficient workflows in VS Code',
+        'Deploying projects with Vercel & GitHub Pages',
+      ],
+    },
+    problem: {
+      title: 'Problem Solving',
+      icon: '🧠',
+      tagline:
+        'Sharpening logic and algorithmic thinking through practice and real projects.',
+      learned: [
+        'Core data structures & algorithms fundamentals',
+        'Solving logic-building problems in C++',
+        'Breaking down real-world problems into smaller pieces',
+        'Debugging methodically instead of guessing',
+      ],
+    },
+  };
+
+  const overlay = document.getElementById('skillOverlay');
+  if (!overlay) return;
+  const iconEl = document.getElementById('smIcon');
+  const titleEl = document.getElementById('smTitle');
+  const taglineEl = document.getElementById('smTagline');
+  const progressWrap = document.getElementById('smProgressWrap');
+  const progressEl = document.getElementById('smProgress');
+  const learnedEl = document.getElementById('smLearned');
+
+  function openSkillModal(key) {
+    const s = skillsData[key];
+    if (!s) return;
+    iconEl.textContent = s.icon || '💡';
+    titleEl.textContent = s.title;
+    taglineEl.textContent = s.tagline || '';
+
+    if (s.progress && s.progress.length) {
+      progressWrap.style.display = '';
+      progressEl.innerHTML = s.progress
+        .map(
+          p => `
+        <div class="learn-item">
+          <div class="learn-head"><span>${p.label}</span><span class="learn-pct">${p.pct}%</span></div>
+          <div class="learn-bar"><div class="learn-fill" style="--w:${p.pct}%"></div></div>
+        </div>`,
+        )
+        .join('');
+    } else {
+      progressWrap.style.display = 'none';
+      progressEl.innerHTML = '';
+    }
+
+    learnedEl.innerHTML = (s.learned || [])
+      .map(item => `<li>${item}</li>`)
+      .join('');
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Trigger the progress-bar fill transition after the modal (and
+    // its bars) exist in the DOM — a class added in the same tick
+    // as the innerHTML write won't transition.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        progressEl
+          .querySelectorAll('.learn-item')
+          .forEach(el => el.classList.add('vis'));
+      });
+    });
+  }
+
+  function closeSkillModal() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.skill-card[data-skill]').forEach(card => {
+    card.addEventListener('click', () => openSkillModal(card.dataset.skill));
+  });
+  document
+    .getElementById('skillModalClose')
+    ?.addEventListener('click', closeSkillModal);
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeSkillModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSkillModal();
+  });
 })();
 
 /* FORM */
@@ -619,12 +756,21 @@ document
 /* ═══ GITHUB LIVE STATS — per-project card (star/fork/updated) ═══
    Reads data-repo="owner/name" off each .proj-card, fetches star/fork
    counts + last-updated date from the public GitHub API, and renders
-   them inline. Results are cached in localStorage for 1 hour so the
-   60-req/hr unauthenticated rate limit is never a problem on repeat
-   visits. */
+   them inline.
+
+   Robustness: unauthenticated GitHub API calls are capped at 60/hour
+   per IP, shared across every visitor behind the same network (and
+   burned fast during your own dev testing — a handful of reloads and
+   you're locked out for the rest of the hour). To keep the stats
+   visible even when that limit is hit, a *stale* cache is now always
+   used as a fallback: once a successful fetch has happened, that data
+   keeps showing even after it expires, and it's only ever silently
+   replaced by a fresh, successful fetch. The "stats unavailable"
+   message now only appears if a repo has literally never loaded
+   successfully in this browser. */
 (function () {
-  const CACHE_KEY = 'gh_stats_cache_v1';
-  const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+  const CACHE_KEY = 'gh_stats_cache_v2';
+  const CACHE_TTL = 3 * 60 * 60 * 1000; // refetch after 3h, but keep showing stale data on failure
 
   function readCache() {
     try {
@@ -673,15 +819,24 @@ document
   async function fetchRepoStats(repo) {
     const cache = readCache();
     const hit = cache[repo];
-    if (hit && Date.now() - hit.ts < CACHE_TTL) return hit.data;
+    const isFresh = hit && Date.now() - hit.ts < CACHE_TTL;
 
-    const res = await fetch(`https://api.github.com/repos/${repo}`);
-    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
-    const data = await res.json();
+    if (isFresh) return { data: hit.data, fromCache: true };
 
-    cache[repo] = { ts: Date.now(), data };
-    writeCache(cache);
-    return data;
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}`);
+      if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+      const data = await res.json();
+      cache[repo] = { ts: Date.now(), data };
+      writeCache(cache);
+      return { data, fromCache: false };
+    } catch (err) {
+      // Fetch failed (rate limit, offline, blocked, etc.) — fall back
+      // to whatever we last had, even if it's stale, instead of
+      // showing an error the visitor has no way to fix.
+      if (hit) return { data: hit.data, fromCache: true };
+      throw err;
+    }
   }
 
   function init() {
@@ -703,7 +858,7 @@ document
             if (!entry.isIntersecting) return;
             io.disconnect();
             fetchRepoStats(card.dataset.repo)
-              .then(data => renderStats(statsEl, data))
+              .then(({ data }) => renderStats(statsEl, data))
               .catch(() => renderError(statsEl));
           });
         },
@@ -721,14 +876,17 @@ document
 /* ═══ GITHUB PROFILE OVERVIEW — #github-stats section ═══
    Fetches public profile info (avatar, repos, followers, following)
    for shamim-01 from the GitHub API and fills the #ghProfile card.
-   The readme-stats / contribution-graph images in that section are
-   static third-party image endpoints — no JS needed for those. */
+   Same stale-cache-as-fallback strategy as the per-project stats
+   above, so a rate-limited or failed request doesn't blank the
+   section once it has loaded successfully at least once.
+   The contribution-graph image below is a static third-party image
+   endpoint — no JS needed for that one. */
 (function () {
   const el = document.getElementById('ghProfile');
   if (!el) return;
 
-  const CACHE_KEY = 'gh_profile_cache_v1';
-  const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+  const CACHE_KEY = 'gh_profile_cache_v2';
+  const CACHE_TTL = 3 * 60 * 60 * 1000; // refetch after 3h, but keep showing stale data on failure
 
   function readCache() {
     try {
@@ -760,22 +918,143 @@ document
   }
 
   const cached = readCache();
-  if (cached && Date.now() - cached.ts < CACHE_TTL) {
-    render(cached.data);
+  const cacheIsFresh = cached && Date.now() - cached.ts < CACHE_TTL;
+
+  // Show whatever we have immediately, even if stale — better than a
+  // skeleton that never resolves.
+  if (cached) render(cached.data);
+
+  if (!cacheIsFresh) {
+    fetch('https://api.github.com/users/shamim-01')
+      .then(r => {
+        if (!r.ok) throw new Error('GitHub API error: ' + r.status);
+        return r.json();
+      })
+      .then(u => {
+        render(u);
+        writeCache(u);
+      })
+      .catch(() => {
+        // Fetch failed — keep showing the stale cached render above.
+        // Only show the error state if we've never had any data.
+        if (!cached) renderError();
+      });
+  }
+})();
+
+/* ═══ GITHUB REPO STATS + LANGUAGES CARD — #github-stats section ═══
+   Replaces the old github-readme-stats.vercel.app <img> cards (which
+   frequently 503'd since that free service sleeps/rate-limits) with
+   a native card computed from a single call to the repos endpoint:
+   total public repos, total stars, total forks, and a top-5 language
+   breakdown by repo size. Same stale-cache-as-fallback strategy as
+   the other GitHub widgets on this page. */
+(function () {
+  const statsEl = document.getElementById('ghStatsRows');
+  const langEl = document.getElementById('ghLangBars');
+  if (!statsEl || !langEl) return;
+
+  const CACHE_KEY = 'gh_repos_cache_v1';
+  const CACHE_TTL = 3 * 60 * 60 * 1000;
+
+  const LANG_COLORS = {
+    JavaScript: '#f1e05a',
+    TypeScript: '#3178c6',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    Python: '#3572A5',
+    Java: '#b07219',
+    'C++': '#f34b7d',
+    C: '#555555',
+    Shell: '#89e051',
+    Vue: '#41b883',
+    PHP: '#4F5D95',
+    Go: '#00ADD8',
+  };
+  function langColor(name) {
+    return LANG_COLORS[name] || '#888888';
   }
 
-  fetch('https://api.github.com/users/shamim-01')
-    .then(r => {
-      if (!r.ok) throw new Error('GitHub API error: ' + r.status);
-      return r.json();
-    })
-    .then(u => {
-      render(u);
-      writeCache(u);
-    })
-    .catch(() => {
-      if (!cached) renderError();
+  function readCache() {
+    try {
+      return JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    } catch {
+      return null;
+    }
+  }
+  function writeCache(data) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+    } catch {
+      /* storage unavailable — stats just won't cache */
+    }
+  }
+
+  function computeStats(repos) {
+    const owned = repos.filter(r => !r.fork);
+    const stars = owned.reduce((s, r) => s + r.stargazers_count, 0);
+    const forks = owned.reduce((s, r) => s + r.forks_count, 0);
+
+    const bySize = {};
+    owned.forEach(r => {
+      if (!r.language) return;
+      bySize[r.language] = (bySize[r.language] || 0) + (r.size || 1);
     });
+    const total = Object.values(bySize).reduce((a, b) => a + b, 0) || 1;
+    const langs = Object.entries(bySize)
+      .map(([name, size]) => ({ name, pct: (size / total) * 100 }))
+      .sort((a, b) => b.pct - a.pct)
+      .slice(0, 5);
+
+    return { repoCount: owned.length, stars, forks, langs };
+  }
+
+  function render({ repoCount, stars, forks, langs }) {
+    statsEl.innerHTML = `
+      <div class="gh-stat-row"><span>Public repos</span><b>${repoCount}</b></div>
+      <div class="gh-stat-row"><span>Total stars</span><b>${stars}</b></div>
+      <div class="gh-stat-row"><span>Total forks</span><b>${forks}</b></div>`;
+
+    langEl.innerHTML = langs
+      .map(
+        l => `
+      <div class="gh-lang-row">
+        <div class="gh-lang-label">
+          <span class="gh-lang-name"><span class="gh-lang-dot" style="background:${langColor(l.name)}"></span>${l.name}</span>
+          <span>${l.pct.toFixed(1)}%</span>
+        </div>
+        <div class="gh-lang-bar-track"><div class="gh-lang-bar-fill" style="width:${l.pct}%;background:${langColor(l.name)}"></div></div>
+      </div>`,
+      )
+      .join('');
+  }
+
+  function renderError() {
+    statsEl.innerHTML = `<span style="color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:0.78rem">stats unavailable</span>`;
+    langEl.innerHTML = '';
+  }
+
+  const cached = readCache();
+  const isFresh = cached && Date.now() - cached.ts < CACHE_TTL;
+  if (cached) render(cached.data);
+
+  if (!isFresh) {
+    fetch(
+      'https://api.github.com/users/shamim-01/repos?per_page=100&type=owner',
+    )
+      .then(r => {
+        if (!r.ok) throw new Error('GitHub API error: ' + r.status);
+        return r.json();
+      })
+      .then(repos => {
+        const stats = computeStats(repos);
+        render(stats);
+        writeCache(stats);
+      })
+      .catch(() => {
+        if (!cached) renderError();
+      });
+  }
 })();
 
 /* ═══ BLOG SECTION (add to script.js) ═══
