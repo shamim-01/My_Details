@@ -12,10 +12,10 @@
   --bg3: #efe8f6;
   --surface: #ffffff;
   --surface-2: rgba(108, 74, 226, 0.055);
-  --emerald: #0fa383;
-  --emerald-dim: #0b7a63;
+  --emerald: #050f0d;
+  --emerald-dim: #040e0c;
   --gold: #e8794a;
-  --gold-soft: #b8541f;
+  --gold-soft: #ee702c;
   --azure: #6a4ae2;
   --ink: #12142a;
   --muted: #585c76;
@@ -34,9 +34,9 @@ html[data-theme='dark'] {
   --surface: #000000;
   --surface-2: rgba(0, 0, 0, 0.045);
   --emerald: #31eca7;
-  --emerald-dim: #10b981;
-  --gold: #36ca1c;
-  --gold-soft: #6ae822;
+  --emerald-dim: #18e4a0;
+  --gold: #40e723;
+  --gold-soft: #68fe11;
   --azure: #60a5fa;
   --ink: #f0f0f0;
   --muted: #9a9a9a;
